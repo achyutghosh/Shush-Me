@@ -14,5 +14,5 @@
     <string name="touch_to_relaunch">Touch to launch the app.</string>
     <string name="back_to_normal">Back to normal</string>
     <string name="delete_all">Delete All</string>
-    <string name="api_key">AIzaSyDaJUvULK7lb_ZYt9wBuFfvMofof7GSPqY</string>
+    <string name="api_key">insert-api-key-here</string>
 </resources>

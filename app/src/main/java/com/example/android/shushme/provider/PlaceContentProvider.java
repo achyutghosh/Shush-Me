@@ -141,6 +141,9 @@ public class PlaceContentProvider extends ContentProvider {
         // Keep track of the number of deleted places
         int placesDeleted; // starts as 0
         switch (match) {
+            case PLACES:
+                placesDeleted = db.delete(PlaceEntry.TABLE_NAME, selection, selectionArgs);
+                break;
             // Handle the single item case, recognized by the ID included in the URI path
             case PLACE_WITH_ID:
                 // Get the place ID from the URI path
@@ -201,6 +204,13 @@ public class PlaceContentProvider extends ContentProvider {
 
     @Override
     public String getType(@NonNull Uri uri) {
+        final int match = sUriMatcher.match(uri);
+        switch (match) {
+            case PLACES:
+                return PlaceEntry.CONTENT_LIST_TYPE;
+            case PLACE_WITH_ID:
+                return PlaceEntry.CONTENT_ITEM_TYPE;
+        }
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }
